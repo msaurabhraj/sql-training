@@ -24,7 +24,7 @@ Choose whichever option works best for you.
 
 ---
 
-### Option B — Local Setup
+### Option B — PostgreSQL (Local Setup)
 
 **1. Install PostgreSQL**
 - Download from [postgresql.org/download](https://www.postgresql.org/download)
@@ -41,6 +41,54 @@ Choose whichever option works best for you.
 - In DBeaver, right-click your database → **SQL Editor**
 - Open `00_setup.sql` and run it
 - You should see all 5 tables appear on the left
+
+---
+
+### Option C — DuckDB (No Server Required)
+
+DuckDB runs entirely in-process, no installation of a database server needed.
+
+**1. Install `uv`**
+
+```
+winget install astral-sh.uv
+```
+
+**2. Clone and set up**
+
+```powershell
+git clone https://github.com/msaurabhraj/sql-training
+cd sql-training/submissions/your-name
+uv init .
+uv add duckdb
+uv sync
+```
+
+**3. Ignore Python and DB files**
+
+Create a `.gitignore` in your submission folder and ignore [these common ignored files and folders](https://github.com/github/gitignore/blob/main/Python.gitignore), `*.db`, `*.duckdb`, and `uv.lock`.
+
+**4. Run your queries**
+
+Create a Python file in your submissions folder (e.g. `submissions/your-name/run.py`):
+
+```python
+from pathlib import Path
+import duckdb
+
+con = duckdb.connect("training.duckdb")
+con.execute(Path("../../00_setup.sql").read_text())
+
+# run your query
+con.sql(Path("sql/my_query.sql").read_text()).show()
+```
+
+Then run it with:
+
+```powershell
+# cd sql-training/submissions/your-name
+uv run run.py
+```
 
 ---
 
