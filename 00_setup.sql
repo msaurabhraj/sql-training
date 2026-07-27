@@ -3,6 +3,12 @@
 -- Run this file first to create all tables and sample data
 -- ============================================================
 
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS employee_projects;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS departments;
+
 -- DEPARTMENTS
 CREATE TABLE departments (
     id          INT PRIMARY KEY,
@@ -34,17 +40,23 @@ CREATE TABLE employees (
 
 INSERT INTO employees VALUES
 -- Level 1: CEO
-(16, 'Sam',     'CEO',      'sam@company.com',     1, NULL,  200000, '2010-01-01', 'CEO'),
+(16, 'Sam',     'CEO',      'sam@company.com',     1, NULL,  200000, '2010-01-01', 'CEO');
+
+INSERT INTO employees VALUES
 -- Level 2: VPs / Directors
 (1,  'Alice',   'Smith',    'alice@company.com',   1, 16,   120000, '2018-03-15', 'VP Engineering'),
 (4,  'David',   'Brown',    'david@company.com',   2, 16,   110000, '2017-11-20', 'VP Sales'),
 (7,  'Grace',   'Wilson',   'grace@company.com',   3, 16,    95000, '2016-09-30', 'HR Director'),
 (9,  'Iris',    'Taylor',   'iris@company.com',    4, 16,   105000, '2019-08-22', 'Marketing Director'),
-(11, 'Karen',   'Thomas',   'karen@company.com',   5, 16,   115000, '2015-05-18', 'CFO'),
+(11, 'Karen',   'Thomas',   'karen@company.com',   5, 16,   115000, '2015-05-18', 'CFO');
+
+INSERT INTO employees VALUES
 -- Level 3: Managers
 (2,  'Bob',     'Jones',    'bob@company.com',     1, 1,     90000, '2019-06-01', 'Senior Engineer'),
 (5,  'Eva',     'Davis',    'eva@company.com',     2, 4,     75000, '2021-04-05', 'Sales Manager'),
-(12, 'Leo',     'Jackson',  'leo@company.com',     5, 11,    80000, '2020-10-07', 'Finance Manager'),
+(12, 'Leo',     'Jackson',  'leo@company.com',     5, 11,    80000, '2020-10-07', 'Finance Manager');
+
+INSERT INTO employees VALUES
 -- Level 4: Individual contributors
 (3,  'Carol',   'White',    'carol@company.com',   1, 2,     85000, '2020-01-10', 'Engineer'),
 (13, 'Mia',     'Harris',   'mia@company.com',     1, 2,     88000, '2020-03-25', 'Engineer'),
