@@ -43,7 +43,7 @@
 -- Exercise 8
 -- Get all projects that are currently 'active'.
 -- Show the project name, budget, and start date.
-   select project_name, budget, start_date from projects where status = 'active';
+   select name, budget, start_date from projects where status = 'active';
 
 
 -- Exercise 9
@@ -78,7 +78,7 @@
 -- Exercise 14
 -- Get all projects that have an end_date (i.e. end_date is not NULL).
 -- Show project name and end_date, sorted by end_date ascending.
-   select project_name, end_date from projects where end_date is not null order by end_date asc;
+   select name, end_date from projects where end_date is not null order by end_date asc;
 
 
 -- Exercise 15
