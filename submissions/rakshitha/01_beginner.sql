@@ -49,7 +49,7 @@
 -- Get all projects that are currently 'active'.
 -- Show the project name, budget, and start date.
    select name, budget, start_date from projects where status = 'active';
--- commented out because status of projects is not available in the database.
+
 
 
 
@@ -90,7 +90,6 @@
 -- Get all projects that have an end_date (i.e. end_date is not NULL).
 -- Show project name and end_date, sorted by end_date ascending.
    select name, end_date from projects where end_date is not NULL order by end_date asc;
--- commented out because end_date of projects is not available in the database.
 
 
 
