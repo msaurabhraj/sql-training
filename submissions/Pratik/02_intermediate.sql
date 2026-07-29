@@ -189,4 +189,4 @@ where strftime('%Y', e.hire_date) in (
     select strftime('%Y', hire_date)
     from employees
     where department_id != e.department_id
-)
+);
