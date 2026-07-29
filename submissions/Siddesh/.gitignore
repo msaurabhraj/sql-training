@@ -11,4 +11,5 @@ env/
 *.db
 *.duckdb
 uv.lock
-.pyproject.toml
+pyproject.toml
+main.py
